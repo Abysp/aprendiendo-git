@@ -80,7 +80,7 @@ body {
     color: #fff;
 }
 
-/* ── Concept cards ── */
+/* ── Main layout ── */
 main {
     max-width: 1100px;
     margin: 0 auto;
@@ -90,42 +90,68 @@ main {
     gap: 3rem;
 }
 
+/* ── Concept cards — stacked layout ── */
 .concept {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
     background: #fff;
     border-radius: var(--radius);
-    padding: 2rem;
     box-shadow: var(--shadow);
     scroll-margin-top: 1.5rem;
+    overflow: hidden;
 }
 
-.concept:nth-child(even) .concept-visual { order: -1; }
+/* ── Concept header ── */
+.concept-header {
+    padding: 2rem 2.5rem 1.75rem;
+}
 
 .concept h2 {
     color: var(--accent);
-    font-size: 1.6rem;
-    margin-bottom: .25rem;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: .3rem;
 }
 
 .tagline {
     color: var(--text-muted);
     font-style: italic;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--cream-dark);
+    font-size: 1rem;
 }
 
-.concept section { margin-bottom: 1.1rem; }
+/* ── Full-width visual band ── */
+.concept-visual {
+    background: var(--cream);
+    border-top: 1px solid var(--cream-dark);
+    border-bottom: 1px solid var(--cream-dark);
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.anim-svg {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+}
+
+/* ── Three-column content grid ── */
+.concept-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem 2.5rem;
+}
+
+.concept-content section { /* no bottom margin needed — gap handles spacing */ }
 
 .concept h3 {
     font-size: .78rem;
     text-transform: uppercase;
     letter-spacing: .06em;
     color: var(--text-muted);
-    margin-bottom: .4rem;
+    margin-bottom: .5rem;
 }
 
 .concept p { font-size: .95rem; }
@@ -161,24 +187,6 @@ code {
 
 .resources a:hover { border-bottom-color: var(--blue); }
 
-/* ── Visual panel ── */
-.concept-visual {
-    background: var(--cream);
-    border-radius: var(--radius);
-    padding: 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 260px;
-    border: 1px solid var(--cream-dark);
-}
-
-.anim-svg {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-}
-
 /* ── Footer ── */
 footer {
     text-align: center;
@@ -189,12 +197,26 @@ footer {
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
-    .concept {
-        grid-template-columns: 1fr;
+@media (max-width: 900px) {
+    .concept-content {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .concept:nth-child(even) .concept-visual { order: 0; }
+    .concept-content section:last-child {
+        grid-column: 1 / -1;
+    }
+}
 
-    .concept-visual { min-height: 220px; }
+@media (max-width: 600px) {
+    .concept-header { padding: 1.5rem 1.5rem 1.25rem; }
+    .concept-visual { padding: 1.25rem 1rem; }
+    .concept-content {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .concept-content section:last-child {
+        grid-column: auto;
+    }
 }

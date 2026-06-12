@@ -7,7 +7,7 @@ const animators = {
           .fromTo('.repo-dot', { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, stagger: 0.15, duration: 0.3 }, 0.6)
           .to('.repo-cloud, .repo-cloud-label', { opacity: 1, duration: 0.5 }, 1)
           .to('.repo-sync-line, .repo-sync-arrow', { opacity: 1, duration: 0.3 }, 1.2)
-          .fromTo('.repo-sync-line', { strokeDashoffset: 70 }, { strokeDashoffset: 0, duration: 0.6 }, 1.2);
+          .fromTo('.repo-sync-line', { strokeDashoffset: 80 }, { strokeDashoffset: 0, duration: 0.6 }, 1.2);
         return tl;
     },
 
@@ -15,15 +15,15 @@ const animators = {
         const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
         const fly = (sel, delay) => {
             tl.fromTo(sel,
-                { attr: { cx: 220, cy: 100 }, opacity: 0 },
+                { attr: { cx: 610, cy: 97 }, opacity: 0 },
                 {
                     opacity: 1,
                     duration: 1,
                     ease: 'power2.inOut',
                     keyframes: [
-                        { attr: { cx: 185, cy: 112 }, duration: 0.33 },
-                        { attr: { cx: 140, cy: 142 }, duration: 0.33 },
-                        { attr: { cx: 110, cy: 160 }, duration: 0.34 }
+                        { attr: { cx: 390, cy: 128 }, duration: 0.33 },
+                        { attr: { cx: 240, cy: 150 }, duration: 0.33 },
+                        { attr: { cx: 149, cy: 165 }, duration: 0.34 }
                     ]
                 },
                 delay
@@ -64,12 +64,12 @@ const animators = {
     'push-pull'(svg) {
         const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
         tl.to('.pp-push-arrow, .pp-push-label', { opacity: 1, duration: 0.3 }, 0)
-          .fromTo('.push-dot', { attr: { cx: 150 }, opacity: 0 }, { attr: { cx: 240 }, opacity: 1, duration: 0.8, ease: 'power2.inOut' }, 0.2)
+          .fromTo('.push-dot', { attr: { cx: 257 }, opacity: 0 }, { attr: { cx: 643 }, opacity: 1, duration: 0.8, ease: 'power2.inOut' }, 0.2)
           .to('.pp-lc-3', { opacity: 1, duration: 0.2 }, 0.2)
           .to('.pp-rc-3', { opacity: 1, duration: 0.2 }, 1)
           .to('.push-dot', { opacity: 0, duration: 0.1 }, 1)
           .to('.pp-pull-arrow, .pp-pull-label', { opacity: 1, duration: 0.3 }, 1.2)
-          .fromTo('.pull-dot', { attr: { cx: 240 }, opacity: 0 }, { attr: { cx: 150 }, opacity: 1, duration: 0.8, ease: 'power2.inOut' }, 1.4)
+          .fromTo('.pull-dot', { attr: { cx: 643 }, opacity: 0 }, { attr: { cx: 257 }, opacity: 1, duration: 0.8, ease: 'power2.inOut' }, 1.4)
           .to('.pull-dot', { opacity: 0, duration: 0.1 }, 2.2)
           .to('.pp-push-arrow, .pp-push-label, .pp-pull-arrow, .pp-pull-label', { opacity: 0, duration: 0.2 }, 2.3);
         return tl;
@@ -87,7 +87,7 @@ const animators = {
 
     merge(svg) {
         const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-        tl.fromTo('.mn-feat-2', { attr: { cy: 100 } }, { attr: { cy: 180 }, duration: 0.8, ease: 'power2.inOut' }, 0)
+        tl.fromTo('.mn-feat-2', { attr: { cy: 90 } }, { attr: { cy: 210 }, duration: 0.8, ease: 'power2.inOut' }, 0)
           .to('.merge-feat-path', { opacity: 0.3, duration: 0.3 }, 0.8)
           .to('.merge-pulse', { opacity: 0.5, scale: 1.5, duration: 0.4 }, 0.8)
           .to('.merge-pulse', { opacity: 0, duration: 0.3 }, 1.2)
@@ -100,8 +100,8 @@ const animators = {
     rebase(svg) {
         const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
         tl.to('.rb-m3', { opacity: 1, duration: 0.3 }, 0)
-          .fromTo('.rb-f1', { attr: { cx: 140, cy: 100 } }, { attr: { cx: 260, cy: 180 }, duration: 0.8, ease: 'power2.inOut' }, 0.3)
-          .fromTo('.rb-f2', { attr: { cx: 200, cy: 100 } }, { attr: { cx: 320, cy: 180 }, duration: 0.8, ease: 'power2.inOut' }, 0.5)
+          .fromTo('.rb-f1', { attr: { cx: 270, cy: 100 } }, { attr: { cx: 590, cy: 200 }, duration: 0.8, ease: 'power2.inOut' }, 0.3)
+          .fromTo('.rb-f2', { attr: { cx: 430, cy: 100 } }, { attr: { cx: 750, cy: 200 }, duration: 0.8, ease: 'power2.inOut' }, 0.5)
           .to('.rb-f1-new, .rb-f2-new', { opacity: 1, duration: 0.2, stagger: 0.1 }, 1)
           .to('.rb-m4, .rb-m5', { opacity: 1, duration: 0.2, stagger: 0.1 }, 1)
           .to('.rb-f1, .rb-f2', { opacity: 0, duration: 0.2 }, 1)
@@ -133,10 +133,10 @@ const animators = {
     issue(svg) {
         const tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
         tl.to('.issue-card-new, .issue-num, .issue-title, .issue-label, .issue-label-text', { opacity: 1, duration: 0.4, stagger: 0.1 }, 0)
-          .to('.issue-card-new', { attr: { x: 152 }, duration: 0.8, ease: 'power2.inOut' }, 1)
+          .to('.issue-card-new', { attr: { x: 316 }, duration: 0.8, ease: 'power2.inOut' }, 1)
           .to('.issue-card-new', { opacity: 0, duration: 0.1 }, 1.8)
-          .to('.issue-card-move', { opacity: 1, attr: { x: 152 }, duration: 0.01 }, 1.8)
-          .to('.issue-card-move', { attr: { x: 264 }, duration: 0.8, ease: 'power2.inOut' }, 2)
+          .to('.issue-card-move', { opacity: 1, attr: { x: 316 }, duration: 0.01 }, 1.8)
+          .to('.issue-card-move', { attr: { x: 592 }, duration: 0.8, ease: 'power2.inOut' }, 2)
           .to('.issue-card-move', { opacity: 0, duration: 0.1 }, 2.8)
           .to('.issue-card-done, .issue-done-check', { opacity: 1, duration: 0.4 }, 2.9);
         return tl;
